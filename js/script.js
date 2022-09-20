@@ -65,8 +65,19 @@
             const endData = new Date(deadline).getTime();
             console.log(endData)
 
-            const s = new Date(nowData).toUTCString();
-            console.log( new Date(nowData).getTimezoneOffset())
+            var date = new Date(); //Current timestamp
+date = date.toGMTString(); 
+//Based on the time zone where the date was created
+console.log(date);
+
+/*based on the comment getTimezoneOffset returns an offset based 
+on the date it is called on, and the time zone of the computer the code is
+ running on. It does not supply the offset passed in when constructing a 
+date from a string. */
+
+date = new Date(date); //will convert to present timestamp offset
+date = new Date(date.getTime() + (date.getTimezoneOffset() * 60 * 1000)); 
+console.log(new Date(date));
 
 
             const timeRaining = endData - nowData;
