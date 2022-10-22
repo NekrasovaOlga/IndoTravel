@@ -13,14 +13,23 @@
   <link rel="stylesheet" href="css/timer.css">
   <link rel="stylesheet" href="css/modal.css">
   <title>Indonesia</title>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+  <script defer src="js/plugins/inputmask.min.js"></script>
+  <script defer src="js/plugins/just-validate.production.min.js"></script>
   <script type="module" src="js/script.js"></script>
+  <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
+/>
+
+
 </head>
 <body>
   <header class="header">
     <div class="container header__container">
       <img src="img/logo.svg" class="logo header__logo" alt="Логотип компании Indo Travel">
 
-      <button class="header__menu-button" aria-label="Кнопка вызова меню"></button>
+      <button class="header__menu-button" aria-label="Кнопка вызова меню"><svg width="35" height="16" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="35" height="2" rx="1" fill="#fff"/><rect y="7" width="35" height="2" rx="1" fill="#fff"/><rect y="14" width="35" height="2" rx="1" fill="#fff"/></svg></button>
 
       <nav class="header__menu">
         <ul class="header__list">
@@ -46,7 +55,7 @@
 
           <p class="hero__text">Действует скидка 20% на туры от 6&nbsp;человек</p>
 
-          <div class="hero__timer" data-timer-deadline="2022.09.21 22:42">
+          <div class="hero__timer" data-timer-deadline="2022.11.21 22:42">
           </div>
 
           
@@ -182,38 +191,38 @@
         <p class="section__text section__text_big album__text">За годы поездок у нас накопилось много фотографий из Индонезии. Представляем их вам.</p>
       </div>
       <div class="album__slider">
-        <ul class="album__list">
-          <li class="album__item">
+        <ul class="album__list swiper-wrapper">
+          <li class="album__item swiper-slide">
             <picture>
               <source srcset="img/album/1.avif" type="image/avif">
               <source srcset="img/album/1.webp" type="image/webp">
               <img src="img/album/1.jpg" alt="Остров" class="album__image"></picture>
           </li>
-          <li class="album__item">
+          <li class="album__item swiper-slide">
             <picture>
               <source srcset="img/album/2.avif" type="image/avif">
               <source srcset="img/album/2.webp" type="image/webp">
               <img src="img/album/2.jpg" alt="Горы" class="album__image"></picture>
           </li>
-          <li class="album__item">
+          <li class="album__item swiper-slide">
             <picture>
               <source srcset="img/album/3.avif" type="image/avif">
               <source srcset="img/album/3.webp" type="image/webp">
               <img src="img/album/3.jpg" alt="Лодки" class="album__image"></picture>
           </li>
-          <li class="album__item">
+          <li class="album__item swiper-slide">
             <picture>
               <source srcset="img/album/4.avif" type="image/avif">
               <source srcset="img/album/4.webp" type="image/webp">
               <img src="img/album/4.jpg" alt="Закат" class="album__image"></picture>
           </li>
-          <li class="album__item">
+          <li class="album__item swiper-slide">
             <picture>
               <source srcset="img/album/5.avif" type="image/avif">
               <source srcset="img/album/5.webp" type="image/webp">
               <img src="img/album/5.jpg" alt="Волны" class="album__image"></picture>
           </li>
-          <li class="album__item">
+          <li class="album__item swiper-slide">
             <picture>
               <source srcset="img/album/6.avif" type="image/avif">
               <source srcset="img/album/6.webp" type="image/webp">
@@ -249,7 +258,7 @@
             </div>
             <div class="reservation__input-wrap">
               <label for="reservation__phone" class="reservation__label">Телефон</label>
-              <input required type="text" name="phone" class="reservation__input" id="reservation__phone" placeholder="Введите номер телефона">
+              <input required type="text" name="phone" class="reservation__input reservation__input_phone" id="reservation__phone" placeholder="Введите номер телефона">
             </div>
           </div>
           <div class="reservation__bottom">

@@ -9,6 +9,7 @@ right:0;
 bottom: 0;
 pointer-event: none;
 background: url('img/fly.svg') center/contain no-repeat;
+z-index: 9999;
 `
 
 document.body.append(fly);
