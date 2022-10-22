@@ -4,7 +4,6 @@ const distance = 500;
 
 const buttonMenu = document.querySelector('.header__menu-button');
 const menuSvgRect = document.querySelectorAll('.header__menu-button svg rect');
-//const menuSvgRect2 = buttonMenu.querySelector('rect:nth-child(3)');
 
 buttonMenu.addEventListener('click', () => {
     if(!buttonMenu.classList.contains('active')){
@@ -21,7 +20,7 @@ function update(width) {
         
         const angle = width * (2 - index / 10);
         console.log(angle)
-        circle.style.transition = `0.${angle}s`;
+        circle.style.transition = `0.${distance}s`;
         circle.setAttribute('width', `${angle}px`);
     });
 }
