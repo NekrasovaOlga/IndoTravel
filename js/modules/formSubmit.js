@@ -1,3 +1,6 @@
+import modal from './modal.js';
+
+
 const footerForm = document.querySelector('.footer__form');
 const reservationForm = document.querySelector('.reservation__form');
 
@@ -50,6 +53,8 @@ reservationForm.addEventListener('submit', e => {
     })
     .then( response => (response.ok) ? response.json : Promise.reject('is not ok: ' + response.status))
     .then( (person) => {
+        const modalOverlay = modal();
+        document.body.append(modalOverlay)
         reservationTitle.textContent = 'Ваша заявка успешно отправлена';
         reservationInputs.textContent = 'Наши менеджеры свяжуться с вами в течении 3-х рабочих дней'; 
         reservationContacts.style.display = 'none';
