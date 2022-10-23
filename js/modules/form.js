@@ -60,5 +60,4 @@ formClass.forEach( form => {
 
 
 
-//form.addEventListener('change', changeInput);
 

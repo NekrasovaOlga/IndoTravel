@@ -32,37 +32,40 @@ footerForm.addEventListener('submit', e => {
 
 
 
-reservationForm.addEventListener('submit', e => {
+reservationForm.addEventListener('submit',async (e) => {
     e.preventDefault();
 
-    const reservationInputs = document.querySelector('.reservation__inputs');
-    const reservationContacts = document.querySelector('.reservation__contacts');
-    const reservationBottom = document.querySelector('.reservation__bottom');
     const reservationTitle = document.querySelector('.reservation__title');
+    const price = document.querySelector('.reservation__price');
 
     const data = {
-        data: reservationForm.dates.value,
+        dataTime: reservationForm.dates.value,
         countPeople: reservationForm.people.value,
         nameUser: reservationForm.fio.value,
         phoneUser: reservationForm.phone.value,
+        price: price.textContent,
     }
 
-    fetch('https://jsonplaceholder.typicode.com/posts/', {
-        method: 'post',
-        body: JSON.stringify(data)
-    })
-    .then( response => (response.ok) ? response.json : Promise.reject('is not ok: ' + response.status))
-    .then( (person) => {
-        const modalOverlay = modal();
-        document.body.append(modalOverlay)
-        reservationTitle.textContent = 'Ваша заявка успешно отправлена';
-        reservationInputs.textContent = 'Наши менеджеры свяжуться с вами в течении 3-х рабочих дней'; 
-        reservationContacts.style.display = 'none';
-        reservationBottom.style.display = 'none';
-    })
-    .catch( (err) => {
-        alert('Не удалось отправить заявку. Пожалуйста повторите попытку еще раз.');
-    })
+    const showModal = await modal(data);
 
+    if(showModal){
+        fetch('https://jsonplaceholder.typicode.com/posts/', {
+            method: 'post',
+            body: JSON.stringify(data)
+        })
+        .then( response => (response.ok) ? response.json : Promise.reject('is not ok: ' + response.status))
+        .then( (person) => {
+            reservationTitle.textContent = 'Ваша заявка принята!';
 
+            reservationForm.reset();
+            
+            reservationForm.dates.disabled = true;
+            reservationForm.people.disabled = true;
+            reservationForm.fio.disabled = true;
+            reservationForm.phone.disabled = true;
+        })
+        .catch( (err) => {
+            alert('Не удалось отправить заявку. Пожалуйста повторите попытку еще раз.');
+        })
+    }
 })
