@@ -1,4 +1,5 @@
 import modal from './modal.js';
+console.log(modal)
 
 
 const footerForm = document.querySelector('.footer__form');
@@ -46,7 +47,7 @@ reservationForm.addEventListener('submit',async (e) => {
         price: price.textContent,
     }
 
-    const showModal = await modal(data);
+    const showModal = await modal.modalCreate(data);
 
     if(showModal){
         fetch('https://jsonplaceholder.typicode.com/posts/', {
@@ -55,7 +56,8 @@ reservationForm.addEventListener('submit',async (e) => {
         })
         .then( response => (response.ok) ? response.json : Promise.reject('is not ok: ' + response.status))
         .then( (person) => {
-            reservationTitle.textContent = 'Ваша заявка принята!';
+
+            modal.modalSubmit('Ваша заявка успешно отправлена', 'Наши менеджеры свяжутся с вами в течении 3-х рабочих дней', true);
 
             reservationForm.reset();
             
@@ -65,7 +67,7 @@ reservationForm.addEventListener('submit',async (e) => {
             reservationForm.phone.disabled = true;
         })
         .catch( (err) => {
-            alert('Не удалось отправить заявку. Пожалуйста повторите попытку еще раз.');
+            modal.modalSubmit('Упс... Что-то пошло не так', 'Не удалось отправить заявку. Пожалуйста, повторите отправку еще раз', false);
         })
     }
 })

@@ -36,6 +36,7 @@
   gap: 40px;
 }
 
+
 .modal__btn {
   padding: 16px 40px;
   border-radius: 12px;
@@ -45,11 +46,26 @@
   background-color: #FCB500;
   border: 2px solid transparent;
 }
-
+.modal__btn_form{
+  padding: 25px 112px;
+  margin-top: 64px;
+}
 .modal__btn_edit {
   background-color: #fc8900;
 }
-
+.modal__btn_close{
+  position: absolute;
+  top: -26px;
+  right: -24px;
+  padding: 14px 18px;
+  border-radius: 50%;
+}
+.modal__title-success{
+  width: 550px;
+  margin: 0 auto 55px;
+  padding-top: 17px;
+  font-size: 34px;
+}
 .modal__btn:hover {
   background-color: #ffbbaa;
 }
