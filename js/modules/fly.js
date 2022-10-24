@@ -1,6 +1,6 @@
 const fly = document.createElement('div');
 const docEl = document.documentElement;
-
+let startScroll = 0;
 fly.style.cssText = `
 position: fixed;
 width: 50px;
@@ -29,7 +29,13 @@ const percentScroll = (window.pageYOffset * 100) / maxScroll;
 
 const left = maxTop * (percentScroll / 100);
 
-fly.style.transform = `translateY(-${left}px) rotate(270deg)`;
+if(startScroll < percentScroll){
+    startScroll = percentScroll;
+    fly.style.transform = `translateY(-${left}px) rotate(270deg)`;
+} else {
+    startScroll = percentScroll;
+    fly.style.transform = `translateY(-${left}px) rotate(90deg)`;
+}
 };
 
 
