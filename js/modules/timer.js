@@ -58,10 +58,12 @@
         }
 
         const dataTimer = () => {
-            const nowData = Date.now();
+            const nowData = new Date();
             const endData = new Date(deadline).getTime();
+            nowData.setHours(nowData.getUTCHours() + 3)
             const timeRaining = endData - nowData;
-            
+
+            console.log(nowData);
             const timerDay = Math.floor(timeRaining / (1000 * 60 * 60 * 24));
             let timerHours = Math.floor(timeRaining / (1000 * 60 * 60) % 24);
             let timerMinutes = Math.floor(timeRaining / (1000 * 60) % 60 );
